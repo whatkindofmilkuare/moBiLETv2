@@ -153,6 +153,46 @@ if (window.location.pathname.endsWith('rdm_ticket.html')) {
   .catch(error => {
       console.error('Wystąpił błąd:', error);
   });
+
+  // Funkcja uruchamiająca skrypt PHP do szyfrowania
+  async function runEncryptPHP(sessionID) {
+    try {
+        // Wywołujemy skrypt encrypt.php za pomocą Fetch API
+        const response = await fetch('/php/encrypt.php', {
+            method: 'POST', // Używamy metody POST do wysłania danych
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'sessionID': sessionID // Przekazujemy sessionID do PHP
+            })
+        });
+
+        // Sprawdzamy odpowiedź z serwera
+        if (!response.ok) {
+            throw new Error('Błąd podczas wywoływania encrypt.php');
+        }
+
+        // Odbieramy odpowiedź jako tekst
+        const result = await response.text();
+
+        // Wyświetlamy odpowiedź serwera
+        console.log('Odpowiedź z encrypt.php:', result);
+        alert('Szyfrowanie zakończone sukcesem: ' + result);
+
+    } catch (error) {
+        console.error('Błąd:', error);
+        alert('Wystąpił błąd podczas szyfrowania: ' + error.message);
+    }
+  }
+
+  // Automatyczne wywołanie funkcji po załadowaniu strony
+  const sessionID = prompt('Podaj sessionID, który chcesz zaszyfrować:');
+  if (sessionID) {
+      runEncryptPHP(sessionID);
+  } else {
+      alert('Musisz podać sessionID.');
+  }
 }
 
 
@@ -172,39 +212,45 @@ if (window.location.pathname.endsWith('qr_code_ref.html')) {
         return;
     }
   
-    // Definiujemy ścieżkę do pliku JSON
-    const jsonFilePath = `../data/sessions/${sessionID}.json`;
-  
-    // Funkcja do pobierania danych z pliku JSON
-    async function fetchData() {
+    // Funkcja do pobierania odszyfrowanych danych z pliku decrypt.php
+    async function fetchDecryptedData() {
         try {
-            const response = await fetch(jsonFilePath);
+            const response = await fetch('/../php/decrypt.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    'sessionID': sessionID
+                })
+            });
+
             if (!response.ok) {
-                throw new Error('Błąd podczas pobierania pliku JSON.');
+                throw new Error('Błąd podczas pobierania odszyfrowanych danych.');
             }
+
             const data = await response.json();
-  
+
             // Sprawdzamy czy dane zawierają oczekiwane właściwości
             if (data.randomNum && data.randomNumber && data.formattedTime && data.formattedDate) {
                 // Wstawiamy wartości do odpowiednich elementów HTML
                 document.getElementById('napisnumerbiletu').textContent = data.randomNum;
                 document.getElementById('napiscurrentnumber').textContent = data.randomNumber;
                 document.getElementById('napisgodzinazakupu').textContent = `${data.formattedDate} ${data.formattedTime}`;
+                
                 let formattedTime = data.formattedTime; // np. "14:30:45"
                 let newFormattedTime = moment(formattedTime, "HH:mm:ss").add(60, 'minutes').format("HH:mm:ss");
 
-                console.log(newFormattedTime);
                 document.getElementById('napisgodzinaważności').textContent = `${data.formattedDate} ${newFormattedTime}`;
             } else {
-                console.error('Plik JSON nie zawiera wymaganych właściwości.');
+                console.error('Odszyfrowane dane nie zawierają wymaganych właściwości.');
             }
         } catch (error) {
             console.error('Błąd:', error);
         }
     }
   
-    // Wywołujemy funkcję fetchData, aby pobrać dane i wstawić je do HTML
-    fetchData();
+    // Wywołujemy funkcję fetchDecryptedData, aby pobrać odszyfrowane dane i wstawić je do HTML
+    fetchDecryptedData();
   });
-  
 }
