@@ -169,18 +169,6 @@ if (window.location.pathname.endsWith('rdm_ticket.html')) {
                 })
             });
 
-            // Sprawdzamy odpowiedź z serwera
-            if (!response.ok) {
-                throw new Error('Błąd podczas wywoływania encrypt.php');
-            }
-
-            // Odbieramy odpowiedź jako tekst
-            const result = await response.text();
-
-            // Wyświetlamy odpowiedź serwera
-            console.log('Odpowiedź z encrypt.php:', result);
-            alert('Szyfrowanie zakończone sukcesem: ' + result);
-
         } catch (error) {
             console.error('Błąd:', error);
             alert('Wystąpił błąd podczas szyfrowania: ' + error.message);
@@ -197,7 +185,7 @@ if (window.location.pathname.endsWith('rdm_ticket.html')) {
             console.error('Zmienna sessionID nie jest zdefiniowana lub jest pusta.');
             alert('Zmienna sessionID nie jest zdefiniowana lub jest pusta.');
         }
-    }, 3000); // Opóźnienie wynoszące 3000 milisekund (czyli 3 sekundy)
+    }, 1000); // Opóźnienie wynoszące 3000 milisekund (czyli 3 sekundy)
   });
 }
 
