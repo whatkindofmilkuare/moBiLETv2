@@ -102,6 +102,7 @@ if (window.location.pathname.endsWith('rdm_ticket.html')) {
       text: url,
       width: 600,
       height: 600,
+      padding: 25,
       colorDark : "#000000",
       colorLight : "#ffffff",
       correctLevel : QRCode.CorrectLevel.L  // Ustawienie niskiego poziomu korekcji błędów
