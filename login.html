@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <!--Kodowanie-->
+        <meta charset="UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="user-scalable=no">
+        <!--Robotom dziekujemy-->
+        <meta name="robots" content="noindex, nofollow"/>
+        <!--Opis strony-->
+        <meta name="description" content="Strona została stworzona i jest rozwijana wyłącznie w celach edukacyjnych, jako ćwiczenie umiejętności programistycznych.
+        Projekt ten ma na celu odwzorowanie mechaniki i działania poszczególnych funkcji aplikacji mobilnej Mobilet."/>
+        <!--Tytuł strony-->
+        <title>moBiLETv2 | Log in</title>
+        <!--Favicon strony-->
+        <link rel="shortcut icon" href="img/icons/app_icons/app_icon_5_bocchi.png">
+        <!--Kanoniczny adres strony-->
+        <link rel="canonical" href="https://kanar.fun">
+        <!--Plik manifestu-->
+        <link rel="manifest" href="/manifest.json?v=1.1.1">
+        <!--Theme color-->
+        <meta name="theme-color" content="000000">
+        <!--Baner strony w wiadomościach na mess-->
+        <meta property="og:image" content="https://kanar.fun/img/site_mess_baner.jpeg">
+        <meta property="og:description" content="O kurwa! Czy to zakolini?">
+        <meta property="og:title" content="Z nami kontrole biletowe to fun!">
+        <meta property="og:url" content="https://kanar.fun">
+        <meta property="og:type" content="website">
+        <!--Odniesienie do pliku css-->
+        <link rel="stylesheet" href="css/home_page.css?v=3.1">
+        <!--style dla toast notification-->
+        <link rel="stylesheet" href="css/toast.css?v=1.1.4">
+        <link rel="stylesheet" href="css/menu.css">
+        <!--Skrypt odpowiadający za toast notification i splash screen-->
+        <script src="js/toast_splash.js?v=2.0"></script>
+        <!--Skrypt odpowiadający za blokade gestu cofania-->
+        <script src="js/scroll_block.js"></script>
+        <!--Skrypt odpowiadający za opóźnienie generowania się strony-->
+        <script src="js/load_delay.js"></script>
+        <script src="js/menu.js"></script>
+        <!--Rejestracja service worker-->
+        <script src="js/reg_of_sw.js"></script>
+    </head>
+    <body>
+        <div id="loader"></div>
+        <div id="splash-screen">
+            <img src="img/icons/app_icons/app_icon_5_bocchi.webp" alt="Logo" width="350px" height="350px">
+        </div>
+        <!--Toast notification-->
+        <div id="toast" class="toast">
+            <p class="adresstrony">kanar.fun</p>
+            <span class="opisstrony">
+                Strona została stworzona i jest rozwijana wyłącznie w celach edukacyjnych, jako ćwiczenie umiejętności programistycznych.
+                Projekt ten ma na celu odwzorowanie mechaniki i działania poszczególnych funkcji aplikacji mobilnej Mobilet.
+                Twórcy strony nie popierają korzystania z niej w sposób naruszający przepisy prawa.
+                Prosimy o odpowiedzialne korzystanie z tej strony. Dziękujemy za zrozumienie.
+            </span>
+        </div>
+        <div id="content">
+            <!--Topbar strony-->
+            <nav id="navtopbar">
+                <div id="topbar">
+                    <div id="hightopbar">
+                        <div class="item">
+                            <h1>Log in</h1>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="container2">
+                <img src="img/logo/color_mobilet_logo.png">
+                <div class="login_form">
+                    <input type="email" placeholder="email" class="email-input"> 
+                    <br>
+                    <input type="password" placeholder="password" class="email-input"> 
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

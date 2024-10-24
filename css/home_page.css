@@ -58,6 +58,12 @@ html, body {
     display: flex;
 }
 
+#hightopbar h1 {
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+}
+
 .item {
     flex: 1;
     display: flex;
@@ -124,6 +130,25 @@ html, body {
     padding-bottom: 0;
     height: auto;
     background-color: white;
+    text-align: center;
+}
+
+.container2 {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 30px;
+    padding-bottom: 0;
+    height: auto;
+    background-color: white;
+    text-align: center;
+}
+
+.container2 img {
+    width: 400px;
+    margin-top: 45px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .button1 {
