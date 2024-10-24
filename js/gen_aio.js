@@ -154,45 +154,51 @@ if (window.location.pathname.endsWith('rdm_ticket.html')) {
       console.error('Wystąpił błąd:', error);
   });
 
-  // Funkcja uruchamiająca skrypt PHP do szyfrowania
-  async function runEncryptPHP(sessionID) {
-    try {
-        // Wywołujemy skrypt encrypt.php za pomocą Fetch API
-        const response = await fetch('/php/encrypt.php', {
-            method: 'POST', // Używamy metody POST do wysłania danych
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                'sessionID': sessionID // Przekazujemy sessionID do PHP
-            })
-        });
+  document.addEventListener('DOMContentLoaded', function () {
+    // Funkcja uruchamiająca skrypt PHP do szyfrowania
+    async function runEncryptPHP(sessionId) {
+        try {
+            // Wywołujemy skrypt encrypt.php za pomocą Fetch API
+            const response = await fetch('/php/encrypt.php', {
+                method: 'POST', // Używamy metody POST do wysłania danych
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    'sessionID': sessionId // Przekazujemy sessionID do PHP
+                })
+            });
 
-        // Sprawdzamy odpowiedź z serwera
-        if (!response.ok) {
-            throw new Error('Błąd podczas wywoływania encrypt.php');
+            // Sprawdzamy odpowiedź z serwera
+            if (!response.ok) {
+                throw new Error('Błąd podczas wywoływania encrypt.php');
+            }
+
+            // Odbieramy odpowiedź jako tekst
+            const result = await response.text();
+
+            // Wyświetlamy odpowiedź serwera
+            console.log('Odpowiedź z encrypt.php:', result);
+            alert('Szyfrowanie zakończone sukcesem: ' + result);
+
+        } catch (error) {
+            console.error('Błąd:', error);
+            alert('Wystąpił błąd podczas szyfrowania: ' + error.message);
         }
-
-        // Odbieramy odpowiedź jako tekst
-        const result = await response.text();
-
-        // Wyświetlamy odpowiedź serwera
-        console.log('Odpowiedź z encrypt.php:', result);
-        alert('Szyfrowanie zakończone sukcesem: ' + result);
-
-    } catch (error) {
-        console.error('Błąd:', error);
-        alert('Wystąpił błąd podczas szyfrowania: ' + error.message);
     }
-  }
 
-  // Automatyczne wywołanie funkcji po załadowaniu strony
-  const sessionID = prompt('Podaj sessionID, który chcesz zaszyfrować:');
-  if (sessionID) {
-      runEncryptPHP(sessionID);
-  } else {
-      alert('Musisz podać sessionID.');
-  }
+    // Automatyczne wywołanie funkcji po załadowaniu strony z opóźnieniem 3 sekund
+    setTimeout(function () {
+        // Sprawdź, czy zmienna sessionID jest zdefiniowana globalnie
+        if (typeof sessionId !== 'undefined' && sessionId) {
+            // Wywołaj funkcję szyfrowania z podanym sessionID
+            runEncryptPHP(sessionId);
+        } else {
+            console.error('Zmienna sessionID nie jest zdefiniowana lub jest pusta.');
+            alert('Zmienna sessionID nie jest zdefiniowana lub jest pusta.');
+        }
+    }, 3000); // Opóźnienie wynoszące 3000 milisekund (czyli 3 sekundy)
+  });
 }
 
 
