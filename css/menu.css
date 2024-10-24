@@ -1,11 +1,24 @@
 /* Style dla menu */
-.side-menu {
+.side_menu_left {
     height: 1760px;
     width: 0;
     position: fixed;
     margin-top: 50px;
     top: 0;
     left: 0;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    transition: 0.3s;
+    z-index: 1;
+}
+
+.side_menu_right {
+    height: 1760px;
+    width: 0;
+    position: fixed;
+    margin-top: 50px;
+    top: 0;
+    right: 0;
     background-color: #ffffff;
     overflow-x: hidden;
     transition: 0.3s;
@@ -22,7 +35,17 @@
     cursor: pointer;
 }
 
-#topbar_side_menu {
+#topbar_side_menu_left {
+	width: 100%;
+	height: calc(350px / 100%);
+	text-align: bottom;
+	background-color: rgb(17, 98, 164);
+	text-align: center;
+	align-items: center;
+	justify-content: right;
+}
+
+#topbar_side_menu_right {
 	width: 100%;
 	height: calc(350px / 100%);
 	text-align: bottom;

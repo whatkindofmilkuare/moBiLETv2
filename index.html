@@ -38,7 +38,7 @@
         <script src="js/scroll_block.js"></script>
         <!--Skrypt odpowiadający za opóźnienie generowania się strony-->
         <script src="js/load_delay.js"></script>
-        <script src="js/menu.js"></script>
+        <script src="js/menu.js?v=1.2"></script>
         <!--Rejestracja service worker-->
         <script src="js/reg_of_sw.js"></script>
     </head>
@@ -57,8 +57,8 @@
                 Prosimy o odpowiedzialne korzystanie z tej strony. Dziękujemy za zrozumienie.
             </span>
         </div>
-        <div id="sideMenu" class="side-menu">
-            <div id="topbar_side_menu">
+        <div id="sideMenu_left" class="side_menu_left">
+            <div id="topbar_side_menu_left">
                 <h1>Menu</h1>
             </div>
             <div class="grey_button">
@@ -85,22 +85,27 @@
                 <h5>Log out</h5>
             </div>
         </div>
+        <div id="sideMenu_right" class="side_menu_right">
+            <div id="topbar_side_menu_right">
+                <h1>Favourite</h1>
+            </div>
+        </div>
         <div id="content">
             <!--Topbar strony-->
             <nav id="navtopbar">
                 <div id="topbar">
                     <div id="hightopbar">
                         <div class="item">
-                            <a href="#" class="burgermenuicon" onclick="openMenu()">
-                                <img src="img/icons/burgermenuicon.png" width="85px" height="85px" alt="burger menu icon" onclick="openMenu()">
+                            <a href="#" class="burgermenuicon" onclick="openMenu_left()">
+                                <img src="img/icons/burgermenuicon.png" width="85px" height="85px" alt="burger menu icon" onclick="openMenu_left()">
                             </a>
                         </div>
                         <div class="item">
                             <img class="logo-mobilet" src="img/logo/logo_mobilet.webp" width="335px" height="150px" style="text-align: center; margin-top: 50px;" alt="logo of mobilet app">
                         </div>
                         <div class="item">
-                            <a href="index.html" class="staricon">
-                                <img src="img/icons/staricon.png" width="70px" height="65px" alt="star icon">
+                            <a href="#" class="staricon" onclick="openMenu_right()">
+                                <img src="img/icons/staricon.png" width="70px" height="65px" alt="star icon" onclick="openMenu_right()">
                             </a>
                         </div>
                     </div>
