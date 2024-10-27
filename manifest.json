@@ -4,6 +4,7 @@
     "description": "Web'owa makieta aplikacji moBiLET",
     "orientation": "portrait",
     "categories": ["travel, payments, parking, public transport"],
+    "scope": "/",
     "start_url": "/index.html?skipSplash&skipToast&app",
     "display": "fullscreen",
     "background_color": "#000000",
