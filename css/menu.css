@@ -20,6 +20,10 @@
     top: 0;
     right: 0;
     background-color: #ffffff;
+    background-image: url('../img/skyscrapers_background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow-x: hidden;
     transition: 0.3s;
     z-index: 1;
