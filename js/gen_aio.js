@@ -130,10 +130,6 @@ if (window.location.pathname.endsWith('rdm_ticket.html')) {
     },
     body: JSON.stringify(data)
   })
-  .then(response => response.text())
-  .then(result => {
-    console.log('Data successfully sent to PHP:', result);
-  })
   .catch(error => {
     console.error('Error sending data to PHP:', error);
   });
@@ -141,15 +137,6 @@ if (window.location.pathname.endsWith('rdm_ticket.html')) {
 
   fetch('/php/cleanup.php', {
     method: 'GET' // lub 'POST', w zależności od potrzeb
-  })
-  .then(response => {
-    if (!response.ok) {
-        throw new Error('Błąd sieciowy: ' + response.statusText);
-    }
-    return response.text(); // lub response.json() jeśli zwraca dane w formacie JSON
-  })
-  .then(data => {
-      console.log('Skrypt PHP został aktywowany:', data);
   })
   .catch(error => {
       console.error('Wystąpił błąd:', error);
