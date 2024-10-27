@@ -3,7 +3,7 @@
     "short_name": "moBiLETv2",
     "description": "Web'owa makieta aplikacji moBiLET",
     "orientation": "portrait",
-    "categories": ["travel"],
+    "categories": ["travel, payments, parking, public transport"],
     "start_url": "/index.html?skipSplash&skipToast&app",
     "display": "fullscreen",
     "background_color": "#000000",
