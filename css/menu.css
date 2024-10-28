@@ -7,6 +7,10 @@
     top: 0;
     left: 0;
     background-color: #ffffff;
+    background-color: #ffffff;
+    background-image: url('../img/skyscrapers_background.png');
+    background-position: bottom;
+    background-repeat: no-repeat;
     overflow-x: hidden;
     transition: 0.3s;
     z-index: 1;
