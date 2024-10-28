@@ -2,10 +2,10 @@
 .toast {
     visibility: hidden;
     width: 80%;
-    height: 23%;
+    height: 24%;
     padding: 10px 20px ;
-    background-color: rgba(244, 244, 244, 0.95);
-    backdrop-filter: blur(2px);
+    background-color: rgba(244, 244, 244, 0.92);
+    backdrop-filter: blur(4px);
     color: #fff;
     font-size: 100px;
     font-family: "PT Sans", sans-serif;
