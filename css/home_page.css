@@ -141,6 +141,9 @@ html, body {
     padding-bottom: 0;
     height: auto;
     background-color: white;
+    background-image: url('../img/skyscrapers_background.png');
+    background-position: bottom;
+    background-repeat: no-repeat;
     text-align: center;
 }
 
@@ -149,6 +152,7 @@ html, body {
     margin-top: 45px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 .button1 {
@@ -330,4 +334,58 @@ html, body {
     filter: none;
     -webkit-touch-callout: none; /* Wyłącza menu kontekstowe na urządzeniach dotykowych, takich jak iOS */
     -webkit-user-drag: none; /* Wyłącza możliwość przeciągania obrazu w przeglądarkach WebKit */
+}
+
+.email_input {
+    width: 80%;
+    height: 80px;
+    margin-top: 300px;
+    font-size: 45px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    text-align: left;
+    border-style: solid;
+    border-color: rgb(165, 165, 165);
+    border-width: 1px;
+    border-radius: 20px;
+    padding-left: 25px;
+}
+
+.password_input {
+    width: 80%;
+    height: 80px;
+    margin-top: 55px;
+    font-size: 45px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    text-align: left;
+    border-style: solid;
+    border-color: rgb(165, 165, 165);
+    border-width: 1px;
+    border-radius: 20px;
+    padding-left: 25px;
+}
+
+.buttonnext {
+    
+    width: 60%;
+    height: 120px;
+    margin-top: 200px;
+    text-align: center;
+    left: 20%;
+    background-color: rgb(17, 98, 164);
+    color: white;
+    font-size: 53px;
+}
+
+.buttonnext2 {
+    width: 60%;
+    height: 120px;
+    margin-top: 25px;
+    margin-bottom: 355px;
+    text-align: center;
+    left: 20%;
+    background-color: rgb(17, 98, 164);
+    color: white;
+    font-size: 53px;
 }
