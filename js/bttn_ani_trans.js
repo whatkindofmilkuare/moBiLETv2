@@ -92,5 +92,20 @@ document.addEventListener('DOMContentLoaded', function () {
             hideElements(['.topbutton1_noactive', '.topbutton2_active']);
             showElements(['.topbutton1_active', '.topbutton2_noactive']);
         });
+
+        addClickListener('.skyscapericon', function () {
+            // Ustawienie animacji transformacji na 1 sekundę dla elementów html i body
+            document.documentElement.style.transition = 'transform 0.4s';
+            document.body.style.transition = 'transform 0.4s';
+
+            // Zastosowanie transformacji scale(0.8)
+            document.documentElement.style.transform = 'scale(0.98)';
+            document.body.style.transform = 'scale(0.98)';
+
+            document.body.style.transformOrigin = 'bottom';
+            document.documentElement.style.transformOrigin = 'bottom';
+
+
+        });
     }
 });
